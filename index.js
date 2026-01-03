@@ -1,3 +1,5 @@
+const byee = require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const bcrypt = require("bcrypt");
@@ -10,7 +12,7 @@ const crypto = require("crypto");
 const path = require("path");
 const multerconfig = require("./config/multerconfig");
 const upload = require("./config/multerconfig");
-const byee = require("dotenv").config();
+
 
 app.set("view engine","ejs");
 app.use(express.json());
