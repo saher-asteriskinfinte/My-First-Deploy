@@ -115,10 +115,12 @@ else res.redirect("/login");
 function isLoggedIn(req,res,next){
    if(req.cookies.token === "")    res.redirect("/login");
    else{
-    let data = jwt.verify(req.cookies.token,"shhhh");
+    let data = jwt.verify(req.cookies.token,process.env.JWT_SECRET);
     req.user = data;
     next();
    }
 }
-
-app.listen(3000);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log("Server running on port", PORT);
+});
